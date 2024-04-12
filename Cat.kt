@@ -67,14 +67,16 @@ class Derived(b: Base) : Base by b
 class Something(_age:Int){
     val age = _age
     var bage = 0
-    constructor(_a:Int, _b:Int):this(_a){
+    constructor(_a:Int, _b:Int=100):this(_a){
+        println("Call Something constractor")
         this.bage =_b
     }
     companion object MyObject {
         var XX :Int? = null
+        @JvmField
         var smth = Something(5,10)
         fun bar(_val:Int=777) {
-            smth.bage= -5555
+            //smth.bage= -5555
             setBar(_val)
             println("Companion object called XX:$XX ---${smth.age} ${smth.bage}")
         }

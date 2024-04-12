@@ -103,7 +103,13 @@ fun main() {
     println("point:${point.x}, ${point.y}")
     Utils.printUtils()
     //Something.MyObject.XX = 1000
-    Something.MyObject.bar()
+    println("----Somthing start---")
+    Something.MyObject.smth = Something(10,100000)
+    Something.MyObject.bar(1)
+//    Something.MyObject.bar(10)
+//    Something.MyObject.bar(20)
+//    Something.MyObject.smth = Something(10,100000)
+    println("----Somthing end---")
 
     var smth2 = Something(10)
 
@@ -139,6 +145,21 @@ fun main() {
     println("---------Farmer start-------------")
     Farmer.run()
     println("---------Farmer end-------------")
+
+    println("---------Extention-------------")
+    if (true)
+    {
+        fun String.ownTrim(): String {
+            return "+${this.trim()}+"
+        }
+        var pip =  " pip test0        ".ownTrim()
+        var pip1 = " pip test1        ".let ({ it.ownTrim() })
+        println("ownTrim:${pip}") //ownTrim:+pip test0+
+        println("let:${pip1}") //let:+pip test1+
+    }
+
+
+
 
 //    File("file.txt")
 //        .also { print(it.name) }
